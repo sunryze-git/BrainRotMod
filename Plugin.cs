@@ -61,6 +61,6 @@ public class Plugin : BaseUnityPlugin
 
         harmony.PatchAll();
 
-        Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
+        Logger.LogInfo($"Plugin {BrainrotMod.Plugin.modGUID} is loaded!");
     }
 }

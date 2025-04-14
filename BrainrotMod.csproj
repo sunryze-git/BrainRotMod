@@ -28,7 +28,7 @@
   
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>ref\Assembly-CSharp.dll</HintPath>
+		<HintPath>C:\Users\sunryze\workspace\repoplugin\Assembly-CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
