@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="UnityEngine.CoreModule" />
+    <Reference Include="PhotonUnityNetworking" />
+    <Reference Include="UnityEngine.AudioModule" />
+    <Reference Include="UnityEngine.ParticleSystemModule" />
+    <Reference Include="UnityEngine.PhysicsModule" />
+    <Reference Include="UnityEngine.AnimationModule" />
+    <Reference Include="UnityEngine.AIModule" />
+    <Reference Include="Unity.TextMeshPro" />
+    <Reference Include="UnityEngine.UI" />
+    <Reference Include="Klattersynth" />
+    <Reference Include="Unity.AI.Navigation" />
+    <Reference Include="PhotonVoice.PUN" />
+    <Reference Include="PhotonRealtime" />
+    <Reference Include="Photon3Unity3D" />
+    <Reference Include="PhotonUnityNetworking.Utilities" />
+    <Reference Include="Assembly-CSharp-firstpass" />
+    <Reference Include="Facepunch.Steamworks.Win64" />
+    <Reference Include="PhotonVoice" />
+    <Reference Include="Unity.InputSystem" />
+    <Reference Include="UnityEngine.UIModule" />
+    <Reference Include="Unity.Postprocessing.Runtime" />
+    <Reference Include="UnityEngine.VideoModule" />
+    <Reference Include="UnityEngine.InputLegacyModule" />
+    <Reference Include="Unity.VisualScripting.Core" />
+    <Reference Include="UnityEngine.IMGUIModule" />
+    <Reference Include="PhotonVoice.API" />
+    <Reference Include="websocket-sharp" />
+  </ItemGroup>
+</Project>
