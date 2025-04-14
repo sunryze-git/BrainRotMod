@@ -12,7 +12,6 @@
       https://nuget.bepinex.dev/v3/index.json;
       https://nuget.samboy.dev/v3/index.json
     </RestoreAdditionalProjectSources>
-    <RootNamespace>MyFirstPlugin</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,7 +27,7 @@
   
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-		<HintPath>C:\Users\sunryze\workspace\repoplugin\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\Downloads\Assembly-CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

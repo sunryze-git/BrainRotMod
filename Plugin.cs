@@ -5,43 +5,46 @@ using UnityEngine;
 
 namespace BrainrotMod;
 
-[BepInPlugin(modGUID, modName, modVersion)]
+[BepInPlugin(ModGuid, ModName, ModVersion)]
 public class Plugin : BaseUnityPlugin
 {
-    internal static new ManualLogSource Logger;
+    private static ManualLogSource _logger;
 
-    public const string modGUID = "sunryze.BrainrotMod";
-    public const string modName = "BrainrotMod";
-    public const string modVersion = "1.0.0";
+    private const string ModGuid = "sunryze.BrainrotMod";
+    private const string ModName = "BrainrotMod";
+    private const string ModVersion = "1.0.0";
 
-    public static Plugin PluginInstance;
+    private static Plugin _pluginInstance;
     public static ManualLogSource LoggerInstance;
-    private readonly Harmony harmony = new(modGUID);
+    private readonly Harmony _harmony = new(ModGuid);
 
-    public static string[] Sentences =
-        [
-        "That is so skibidi!", "holy gyatt", "can someone rizz me pls", "only in ohio dude", "did you pray today?",
-        "sussy imposter uwu", "STOP EDGING", "literally goonmaxxing rn", "sticking out my gyatt for the rizzler",
-        "oh my god stop diddling my diddle!!!", "I SAID LET, HIM, COOK!", "L bozo", "what da dog doin", "im mewing rn",
-        "i am literally the rizzler", "edgemaxxing", "ishowmeat", "thats cap", "im literally on the verge of gooning",
-        "im literally on the verge of gooning rn", "i am literally the rizzler", "im literally on the verge of gooning rn",
+    private static readonly string[] Sentences =
+    [
+        "that is so skibidi!", "holy gyatt", "can you rizz me pls", "only in ohio does this shit happen", 
+        "did you pray today?",
+        "u sussy imposter", "STOP EDGING", "bro is goonmaxxing rn", "sticking out my gyatt for the rizzler",
+        "if diddy did diddle dudes, how many dudes did diddy diddle?",
+        "I SAID LET, HIM, COOK!", "L bozo", "what da dog doin", "im mewing rn",
+        "i am the rizzler", "edgemaxxing", "dont be ishowmeat", "thats cap", "im gooning to your sigma aura",
+        "im literally on the verge of gooning rn", "i am literally the rizzler", 
+        "okay. 19 dollar fortnite card. who wants it?",
         "thats so sigma!", "i just have that aura dude", "looksmaxxing with that gyatt",
-        "literally goonmaxxing rn", "do u know da wae", "stop that fanum tax", "Ahh shit, here we go again",
-        "tiktok rizz party"
-        ];
+        "do u know da wae", "fanum tax", "ahh shit, here we go again",
+        "tiktok rizz party", "skibidi rizz", "nah thats cap", "this is fire.", "ur so sigma",
+        "blud shut the fuck up"
+    ];
 
     [HarmonyPatch(typeof(ChatManager))]
-    public class Patch_ChatManager_MessageSend
+    public class PatchChatManagerMessageSend
     {
-        static readonly AccessTools.FieldRef<ChatManager, string> chatMessageRef = AccessTools.FieldRefAccess<ChatManager, string>("chatMessage");
-
         [HarmonyPatch("MessageSend")]
         static void Prefix()
         {
-            var __instance = ChatManager.instance;
-            if (Random.RandomRangeInt(0, 10) >= 9)
+            var instance = ChatManager.instance;
+            if (Random.Range(0.0f,1.0f) < 0.10f)
             {
-                Traverse.Create(__instance).Field("chatMessage").SetValue(Sentences[Random.RandomRangeInt(0, Sentences.Length)]);
+                Traverse.Create(instance).Field("chatMessage").SetValue(
+                    Sentences[Random.RandomRangeInt(0, Sentences.Length)]);
             }
         }
     }
@@ -49,18 +52,16 @@ public class Plugin : BaseUnityPlugin
     private void Awake()
     {
         // Plugin startup logic
-        Logger = base.Logger;
-
-        if (PluginInstance == null)
+        _logger = Logger;
+        if (_pluginInstance == null)
         {
-            PluginInstance = this;
+            _pluginInstance = this;
         }
 
-        LoggerInstance = Logger;
+        LoggerInstance = _logger;
+        
+        _harmony.PatchAll();
 
-
-        harmony.PatchAll();
-
-        Logger.LogInfo($"Plugin {BrainrotMod.Plugin.modGUID} is loaded!");
+        _logger.LogInfo($"welcome to the brainrot zone from {ModGuid}");
     }
 }
